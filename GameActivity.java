@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import android.widget.TextView;
 
 public class GameActivity extends AppCompatActivity {
-
+    Player player1;
+    Player player2;
     static int player1Counter = 1;
     static int player2Counter = 0;
 
@@ -80,6 +82,30 @@ public class GameActivity extends AppCompatActivity {
         return 0;
     }
 
+    public boolean isFull() {
+        Button topLeft = (Button) findViewById(R.id.Top_Left);
+        Button topMid = (Button) findViewById(R.id.Top_Middle);
+        Button topRight = (Button) findViewById(R.id.Top_Right);
+        Button midLeft = (Button) findViewById(R.id.Middle_Left);
+        Button midMid = (Button) findViewById(R.id.Middle_Middle);
+        Button midRight = (Button) findViewById(R.id.Middle_Right);
+        Button botLeft = (Button) findViewById(R.id.Bottom_Left);
+        Button botMid = (Button) findViewById(R.id.Bottom_Middle);
+        Button botRight = (Button) findViewById(R.id.Bottom_Right);
+        if (topLeft.getText().toString().equals("")
+            || topMid.getText().toString().equals("")
+            || topRight.getText().toString().equals("")
+            || midLeft.getText().toString().equals("")
+            || midMid.getText().toString().equals("")
+            || midRight.getText().toString().equals("")
+            || botLeft.getText().toString().equals("")
+            || botMid.getText().toString().equals("")
+            || botRight.getText().toString().equals("")) {
+            return false;
+        }
+        return true;
+    }
+
     public void resetBoard() {
         Button topLeft = (Button) findViewById(R.id.Top_Left);
         Button topMid = (Button) findViewById(R.id.Top_Middle);
@@ -114,6 +140,8 @@ public class GameActivity extends AppCompatActivity {
         final Button botLeft = (Button) findViewById(R.id.Bottom_Left);
         final Button botMid = (Button) findViewById(R.id.Bottom_Middle);
         final Button botRight = (Button) findViewById(R.id.Bottom_Right);
+        TextView showScore = (TextView) findViewById(R.id.Score);
+        showScore.setText("Player 1: 0, Player 2: 0");
 
         topLeft.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,10 +162,18 @@ public class GameActivity extends AppCompatActivity {
                 if (getWinner() == 1) {
                     Toast.makeText(GameActivity.this, "Player 1 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
+                    player1.addScore();
                 }
                 if (getWinner() == 2) {
                     Toast.makeText(GameActivity.this, "Player 2 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
+                    player2.addScore();
+                }
+                if (isFull()) {
+                    Toast.makeText(GameActivity.this, "It's a tie! Resetting board.", Toast.LENGTH_LONG).show();
+                    resetBoard();
+                    player1Counter = 1;
+                    player2Counter = 0;
                 }
             }
         });
@@ -161,10 +197,20 @@ public class GameActivity extends AppCompatActivity {
                 if (getWinner() == 1) {
                     Toast.makeText(GameActivity.this, "Player 1 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
+                    player1Counter = 0;
+                    player2Counter = 1;
                 }
                 if (getWinner() == 2) {
                     Toast.makeText(GameActivity.this, "Player 2 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
+                    player1Counter = 1;
+                    player2Counter = 0;
+                }
+                if (isFull()) {
+                    Toast.makeText(GameActivity.this, "It's a tie! Resetting board.", Toast.LENGTH_LONG).show();
+                    resetBoard();
+                    player1Counter = 1;
+                    player2Counter = 0;
                 }
             }
         });
@@ -187,10 +233,20 @@ public class GameActivity extends AppCompatActivity {
                 if (getWinner() == 1) {
                     Toast.makeText(GameActivity.this, "Player 1 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
+                    player1Counter = 0;
+                    player2Counter = 1;
                 }
                 if (getWinner() == 2) {
                     Toast.makeText(GameActivity.this, "Player 2 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
+                    player1Counter = 1;
+                    player2Counter = 0;
+                }
+                if (isFull()) {
+                    Toast.makeText(GameActivity.this, "It's a tie! Resetting board.", Toast.LENGTH_LONG).show();
+                    resetBoard();
+                    player1Counter = 1;
+                    player2Counter = 0;
                 }
             }
         });
@@ -213,10 +269,20 @@ public class GameActivity extends AppCompatActivity {
                 if (getWinner() == 1) {
                     Toast.makeText(GameActivity.this, "Player 1 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
+                    player1Counter = 0;
+                    player2Counter = 1;
                 }
                 if (getWinner() == 2) {
                     Toast.makeText(GameActivity.this, "Player 2 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
+                    player1Counter = 1;
+                    player2Counter = 0;
+                }
+                if (isFull()) {
+                    Toast.makeText(GameActivity.this, "It's a tie! Resetting board.", Toast.LENGTH_LONG).show();
+                    resetBoard();
+                    player1Counter = 1;
+                    player2Counter = 0;
                 }
             }
         });
@@ -239,10 +305,20 @@ public class GameActivity extends AppCompatActivity {
                 if (getWinner() == 1) {
                     Toast.makeText(GameActivity.this, "Player 1 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
+                    player1Counter = 0;
+                    player2Counter = 1;
                 }
                 if (getWinner() == 2) {
                     Toast.makeText(GameActivity.this, "Player 2 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
+                    player1Counter = 1;
+                    player2Counter = 0;
+                }
+                if (isFull()) {
+                    Toast.makeText(GameActivity.this, "It's a tie! Resetting board.", Toast.LENGTH_LONG).show();
+                    resetBoard();
+                    player1Counter = 1;
+                    player2Counter = 0;
                 }
             }
         });
@@ -265,10 +341,20 @@ public class GameActivity extends AppCompatActivity {
                 if (getWinner() == 1) {
                     Toast.makeText(GameActivity.this, "Player 1 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
+                    player1Counter = 0;
+                    player2Counter = 1;
                 }
                 if (getWinner() == 2) {
                     Toast.makeText(GameActivity.this, "Player 2 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
+                    player1Counter = 1;
+                    player2Counter = 0;
+                }
+                if (isFull()) {
+                    Toast.makeText(GameActivity.this, "It's a tie! Resetting board.", Toast.LENGTH_LONG).show();
+                    resetBoard();
+                    player1Counter = 1;
+                    player2Counter = 0;
                 }
             }
         });
@@ -291,10 +377,20 @@ public class GameActivity extends AppCompatActivity {
                 if (getWinner() == 1) {
                     Toast.makeText(GameActivity.this, "Player 1 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
+                    player1Counter = 0;
+                    player2Counter = 1;
                 }
                 if (getWinner() == 2) {
                     Toast.makeText(GameActivity.this, "Player 2 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
+                    player1Counter = 1;
+                    player2Counter = 0;
+                }
+                if (isFull()) {
+                    Toast.makeText(GameActivity.this, "It's a tie! Resetting board.", Toast.LENGTH_LONG).show();
+                    resetBoard();
+                    player1Counter = 1;
+                    player2Counter = 0;
                 }
             }
         });
@@ -317,10 +413,20 @@ public class GameActivity extends AppCompatActivity {
                 if (getWinner() == 1) {
                     Toast.makeText(GameActivity.this, "Player 1 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
+                    player1Counter = 0;
+                    player2Counter = 1;
                 }
                 if (getWinner() == 2) {
                     Toast.makeText(GameActivity.this, "Player 2 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
+                    player1Counter = 1;
+                    player2Counter = 0;
+                }
+                if (isFull()) {
+                    Toast.makeText(GameActivity.this, "It's a tie! Resetting board.", Toast.LENGTH_LONG).show();
+                    resetBoard();
+                    player1Counter = 1;
+                    player2Counter = 0;
                 }
             }
         });
@@ -343,13 +449,22 @@ public class GameActivity extends AppCompatActivity {
                 if (getWinner() == 1) {
                     Toast.makeText(GameActivity.this, "Player 1 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
+                    player1Counter = 0;
+                    player2Counter = 1;
                 }
                 if (getWinner() == 2) {
                     Toast.makeText(GameActivity.this, "Player 2 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
+                    player1Counter = 1;
+                    player2Counter = 0;
+                }
+                if (isFull()) {
+                    Toast.makeText(GameActivity.this, "It's a tie! Resetting board.", Toast.LENGTH_LONG).show();
+                    resetBoard();
+                    player1Counter = 1;
+                    player2Counter = 0;
                 }
             }
         });
-
     }
 }
