@@ -140,8 +140,6 @@ public class GameActivity extends AppCompatActivity {
         final Button botLeft = (Button) findViewById(R.id.Bottom_Left);
         final Button botMid = (Button) findViewById(R.id.Bottom_Middle);
         final Button botRight = (Button) findViewById(R.id.Bottom_Right);
-        TextView showScore = (TextView) findViewById(R.id.Score);
-        showScore.setText("Player 1: 0, Player 2: 0");
 
         topLeft.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -467,4 +465,6 @@ public class GameActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void
 }

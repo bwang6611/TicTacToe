@@ -5,7 +5,7 @@ public class Player {
     private int score;
 
     public Player() {
-        gameHistory = "No Recorded Games";
+        gameHistory = "";
         score = 0;
     }
 
