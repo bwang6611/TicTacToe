@@ -161,11 +161,15 @@ public class GameActivity extends AppCompatActivity {
                     Toast.makeText(GameActivity.this, "Player 1 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
                     player1.addScore();
+                    player1Counter = 0;
+                    player2Counter = 1;
                 }
                 if (getWinner() == 2) {
                     Toast.makeText(GameActivity.this, "Player 2 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
                     player2.addScore();
+                    player1Counter = 1;
+                    player2Counter = 0;
                 }
                 if (isFull()) {
                     Toast.makeText(GameActivity.this, "It's a tie! Resetting board.", Toast.LENGTH_LONG).show();
@@ -195,12 +199,14 @@ public class GameActivity extends AppCompatActivity {
                 if (getWinner() == 1) {
                     Toast.makeText(GameActivity.this, "Player 1 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
+                    player1.addScore();
                     player1Counter = 0;
-                    player2Counter = 1;
+                    player2Counter = 0;
                 }
                 if (getWinner() == 2) {
                     Toast.makeText(GameActivity.this, "Player 2 Wins!", Toast.LENGTH_LONG).show();
                     resetBoard();
+                    player2.addScore();
                     player1Counter = 1;
                     player2Counter = 0;
                 }
@@ -466,5 +472,7 @@ public class GameActivity extends AppCompatActivity {
         });
     }
 
-    public void
+    public void reset(View v) {
+        resetBoard();
+    }
 }
